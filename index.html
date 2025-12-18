@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ReyDocs | Portfolio</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <!-- Added Font Awesome for Social Logos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <div class="container">
+        <!-- Navigation -->
+        <nav>
+            <div class="logo">ReyDocs</div>
+            
+            <!-- Navigation Links -->
+            <div class="nav-links">
+                <a href="#about">About</a>
+                <a href="#works">Works</a>
+                <a href="#socials">Socials</a>
+            </div>
+
+            <!-- Hamburger Icon (Visible on Mobile) -->
+            <div class="burger">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+        </nav>
+
+        <!-- Hero Section -->
+        <header class="hero-content">
+            <div class="hero-text">
+                <h3>HI!</h3>
+                <h1>I'M REIGHNALD JAY</h1>
+                <p class="tagline">"Great design looks better when animated"</p>
+                <p>I take concepts and make them come to life</p>
+                <br>
+                <p class="roles">Motion Graphics Animator | 3d Animator | UI/UX Enthusiast</p>
+            </div>
+            <div class="hero-image">
+                <!-- Replace 'your-photo.jpg' with your actual image file -->
+                <img src="Untitled design.png" alt="Reighnald Jay">
+            </div>
+        </header>
+
+        <!-- About Section -->
+        <section id="about">
+            <h2>About</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Meet the Developer</h3>
+                    <br>
+                    <p>Reighnald Jay Duque is a 1st year Computer Science student, currently studying in University of the Philippines Mindanao. He was the Technical Director of their TV Broadcasting team in his former high school, making his knowledge about Motion Graphics and 3d Animation solid. He is also exploring Frontend Development and Cyber Security.</p>
+                    <br>
+                    <h4>Educational Background</h4>
+                    <ul class="education-list">
+                        <li>2022-2023: Special Program in Journalism</li>
+                        <li>2024-2025: Technical Vocational Livelihood Track, ICT specialized in Computer Systems Servicing NC2</li>
+                        <li>2025-???: Bachelor of Science in Computer Science</li>
+                    </ul>
+                </div>
+                <!-- Updated Image Structure for Overlap Effect -->
+                <div class="about-img">
+                    <div class="about-frame">
+                        <img src="IMG_20251129_185647.jpg" alt="Profile">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Works Section -->
+        <section id="works">
+            <h2>Works</h2>
+            <div class="card-grid">
+                <!-- 3D Animation Card -->
+                <div class="card">
+                    <div class="card-icon">🟠</div> <!-- Replace with Blender Icon IMG -->
+                    <h3>3D Animation</h3>
+                    <p>Consists of his 3d models and animations made in Blender.</p>
+                    <a href="works_3d_anim.html" class="btn-view">View Here</a>
+                </div>
+
+                <!-- Video Editing Card -->
+                <div class="card">
+                    <div class="card-icon">🟣</div> <!-- Replace with Ae Icon IMG -->
+                    <h3>Video Editing</h3>
+                    <p>Consists of his video editing and animations using the Adobe Suite.</p>
+                    <a href="works_video_edit.html" class="btn-view">View Here</a>
+                </div>
+
+                <!-- Coding Projects Card -->
+                <div class="card">
+                    <div class="card-icon">🟧</div> <!-- Replace with HTML5 Icon IMG -->
+                    <h3>Coding Projects</h3>
+                    <p>Consists of his coding projects specifically in Frontend Dev.</p>
+                    <a href="works_coding_projects.html" class="btn-view">View Here</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Socials Section -->
+        <section id="socials">
+            <h2>Socials</h2>
+            <div class="card-grid">
+                <div class="card">
+                    <h3>Instagram</h3>
+                    <a href="#" class="social-btn"><i class="fab fa-instagram"></i></a>
+                </div>
+                <div class="card">
+                    <h3>FaceBook</h3>
+                    <a href="#" class="social-btn"><i class="fab fa-facebook"></i></a>
+                </div>
+                <div class="card">
+                    <h3>LinkedIn</h3>
+                    <a href="#" class="social-btn"><i class="fab fa-linkedin"></i></a>
+                </div>
+                <div class="card">
+                    <h3>Github</h3>
+                    <a href="#" class="social-btn"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Script for Mobile Navigation -->
+    <script>
+        const burger = document.querySelector('.burger');
+        const nav = document.querySelector('.nav-links');
+        const navLinks = document.querySelectorAll('.nav-links a');
+
+        burger.addEventListener('click', () => {
+            // Toggle Nav
+            nav.classList.toggle('nav-active');
+            
+            // Toggle Burger Animation
+            burger.classList.toggle('toggle');
+
+            // Animate Links Fade In
+            navLinks.forEach((link, index) => {
+                if (link.style.animation) {
+                    link.style.animation = '';
+                } else {
+                    link.style.animation = `navLinkFade 0.5s ease forwards ${index / 7 + 0.3}s`;
+                }
+            });
+        });
+
+        // Close menu when a link is clicked
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                nav.classList.remove('nav-active');
+                burger.classList.remove('toggle');
+                navLinks.forEach(link => link.style.animation = '');
+            });
+        });
+    </script>
+    
+    <!-- Add inline styles for the link animation keyframes -->
+    <style>
+        @keyframes navLinkFade {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+    </style>
+
+</body>
+</html>
